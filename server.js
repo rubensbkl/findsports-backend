@@ -1,10 +1,11 @@
-require('dotenv').config();
 const express = require('express');
 const jsonServer = require('json-server');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const saltRounds = 10;
+
+
 
 const server = express();
 const router = jsonServer.router('database.json');
@@ -14,28 +15,10 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use('/api', router);
 
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
 
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    req.userId = user.id; 
-    next();
-  });
-}
-
-server.post('/verify-token', authenticateToken, (req, res) => {
-    res.json({ valid: true });
-});
 
 // User Register
 server.post('/user-register', async (req, res) => {
-  console.log(process.env.JWT_SECRET);
-  console.log("teste");
   const users = db.get('users');
   const newUser = req.body;
 
@@ -44,7 +27,7 @@ server.post('/user-register', async (req, res) => {
   }
 
   // BCrypt
-  const salt = await bcrypt.genSalt(10);
+  const salt = await bcrypt.genSalt(saltRounds);
   const hashedPassword = await bcrypt.hash(newUser.password, salt);
   newUser.password = hashedPassword;
 
@@ -52,9 +35,9 @@ server.post('/user-register', async (req, res) => {
   newUser.id = users.size().value() + 1;
   newUser.isAdmin = false;
   newUser.name = newUser.username;
-  newUser.likes = 1;
-  newUser.dislikes = 1;
-  newUser.rating = newUser.likes / newUser.dislikes;
+  newUser.likes = 0;
+  newUser.dislikes = 0;
+  newUser.rating = 0;
 
   users.push(newUser).write();
 
@@ -72,8 +55,7 @@ server.post('/user-login', async (req, res) => {
     // BCrypt
     const match = await bcrypt.compare(credentials.password, user.password);
     if(match) {
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      return res.status(200).json({ message: 'Logged in successfully', token: token });
+      return res.status(200).json({ message: 'Logged in successfully', token: user.id, username: user.username});
     }
   }
 
@@ -81,21 +63,18 @@ server.post('/user-login', async (req, res) => {
 });
 
 // User Update
-server.put('/user-edit', authenticateToken, async (req, res) => {
-  const users = db.get('users');
-  const updateData = req.body;
-  
-  const user = users.find({ id: req.user.id }).value();
-  
-  if(user) {
-    users.find({ id: req.user.id })
-      .assign(updateData)
-      .write();
-  
-    return res.status(200).json({ message: 'User updated successfully' });
-  }
-  
-  return res.status(400).json({ message: 'User not found' });
+server.put('/user-edit', async (req, res) => {
+    console.log(req.body);
+    const users = db.get('users');
+    const updateData = req.body;
+    const user = updateData.id;
+    if(user) {
+        users.find(user.id).assign(updateData).write();
+        return res.status(200).json({ message: 'User updated successfully' });
+    } else {
+        return res.status(400).json({ message: 'User not found' });
+    }
+
 });
 
 // Get All Users
@@ -105,7 +84,7 @@ server.get('/users', (req, res) => {
 });
 
 // Get User Profile
-server.get('/user-profile/:id', authenticateToken, (req, res) => {
+server.get('/user-profile/:id', (req, res) => {
   const id = Number(req.params.id);
   // Busque o perfil do usuário com esse ID do banco de dados
   const user = db.get('users').find({ id: id }).value();
@@ -120,7 +99,7 @@ server.get('/user-profile/:id', authenticateToken, (req, res) => {
 });
 
 // Arena Register
-server.post('/arena-register', authenticateToken, async (req, res) => {
+server.post('/arena-register', async (req, res) => {
   const arenas = db.get('arenas');
   const newArena = req.body;
 
@@ -136,13 +115,13 @@ server.post('/arena-register', authenticateToken, async (req, res) => {
 });
 
 // Get All Arenas
-server.get('/arenas', authenticateToken, (req, res) => {
+server.get('/arenas', (req, res) => {
   const arenas = db.get('arenas').value();
   res.status(200).json(arenas);
 });
 
 // Evento Register
-server.post('/evento-register', authenticateToken, async (req, res) => {
+server.post('/evento-register', async (req, res) => {
   const eventos = db.get('eventos');
   const newEvento = req.body;
 
@@ -158,13 +137,13 @@ server.post('/evento-register', authenticateToken, async (req, res) => {
 });
 
 // Get All Eventos
-server.get('/eventos', authenticateToken, (req, res) => {
+server.get('/eventos', (req, res) => {
   const eventos = db.get('eventos').value();
   res.status(200).json(eventos);
 });
 
 // Send Notification
-server.post('/send-notification', authenticateToken, async (req, res) => {
+server.post('/send-notification', async (req, res) => {
     const notifications = db.get('notifications');
     const newNotification = req.body;
   
@@ -180,7 +159,7 @@ server.post('/send-notification', authenticateToken, async (req, res) => {
 });
 
 // Get All Notifications
-server.get('/notifications', authenticateToken, (req, res) => {
+server.get('/notifications', (req, res) => {
     const notifications = db.get('notifications').value();
     res.status(200).json(notifications);
 });
