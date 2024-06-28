@@ -1,5 +1,16 @@
 {
-  "users": [],
+  "users": [
+    {
+      "username": "teste",
+      "password": "$2b$10$FGcoHLKhedPDYYQQxvRGTO58Y7dkk/KjSzBqUeYhIc1.5nmWwLy5i",
+      "id": 1,
+      "isAdmin": false,
+      "name": "teste",
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0
+    }
+  ],
   "arenas": [],
   "eventos": [],
   "notifications": []
