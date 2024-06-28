@@ -22,7 +22,7 @@ server.post('/user-register', async (req, res) => {
   const users = db.get('users');
   const newUser = req.body;
 
-  if(users.find({ username: newUser.username }).value()) {
+  if (users.find({ username: newUser.username }).value()) {
     return res.status(400).json({ message: 'Username already exists' });
   }
 
@@ -51,11 +51,11 @@ server.post('/user-login', async (req, res) => {
 
   const user = users.find({ username: credentials.username }).value();
 
-  if(user) {
+  if (user) {
     // BCrypt
     const match = await bcrypt.compare(credentials.password, user.password);
-    if(match) {
-      return res.status(200).json({ message: 'Logged in successfully', token: user.id, username: user.username});
+    if (match) {
+      return res.status(200).json({ message: 'Logged in successfully', token: user.id, username: user.username });
     }
   }
 
@@ -64,16 +64,16 @@ server.post('/user-login', async (req, res) => {
 
 // User Update
 server.put('/user-edit', async (req, res) => {
-    console.log(req.body);
-    const users = db.get('users');
-    const updateData = req.body;
-    const user = updateData.id;
-    if(user) {
-        users.find(user.id).assign(updateData).write();
-        return res.status(200).json({ message: 'User updated successfully' });
-    } else {
-        return res.status(400).json({ message: 'User not found' });
-    }
+  console.log(req.body);
+  const users = db.get('users');
+  const updateData = req.body;
+  const user = updateData.id;
+  if (user) {
+    users.find(user.id).assign(updateData).write();
+    return res.status(200).json({ message: 'User updated successfully' });
+  } else {
+    return res.status(400).json({ message: 'User not found' });
+  }
 
 });
 
@@ -128,9 +128,6 @@ server.post('/evento-register', async (req, res) => {
   // Default values
   newEvento.id = eventos.size().value() + 1;
 
-  // Include the user ID in the new evento
-  newEvento.ownerId = req.userId; // use req.userId here
-
   eventos.push(newEvento).write();
 
   res.status(200).json({ message: 'Evento registered successfully' });
@@ -144,24 +141,24 @@ server.get('/eventos', (req, res) => {
 
 // Send Notification
 server.post('/send-notification', async (req, res) => {
-    const notifications = db.get('notifications');
-    const newNotification = req.body;
-  
-    // // Default values
-    // newArena.id = arenas.size().value() + 1;
-  
-    // // Include the user ID in the new arena
-    // newArena.ownerId = req.userId; // use req.userId here
-  
-    notifications.push(newNotification).write();
-  
-    res.status(200).json({ message: 'Notificação enviada' });
+  const notifications = db.get('notifications');
+  const newNotification = req.body;
+
+  // // Default values
+  // newArena.id = arenas.size().value() + 1;
+
+  // // Include the user ID in the new arena
+  // newArena.ownerId = req.userId; // use req.userId here
+
+  notifications.push(newNotification).write();
+
+  res.status(200).json({ message: 'Notificação enviada' });
 });
 
 // Get All Notifications
 server.get('/notifications', (req, res) => {
-    const notifications = db.get('notifications').value();
-    res.status(200).json(notifications);
+  const notifications = db.get('notifications').value();
+  res.status(200).json(notifications);
 });
 
 server.listen(3000, () => {
