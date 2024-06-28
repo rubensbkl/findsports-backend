@@ -11,20 +11,18 @@ const server = express();
 const router = jsonServer.router('database.json');
 const db = router.db;
 
-server.use(cors());
+// Adjust the CORS middleware configuration
+const corsOptions = {
+    origin: 'http://127.0.0.1:5500', // or use '*' to allow all origins
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['X-Requested-With', 'content-type'],
+    credentials: true,
+};
+
+server.use(cors(corsOptions));
 server.use(bodyParser.json());
 server.use('/api', router);
 
-// Add headers before the routes are defined
-server.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500'); // Or '*' for a wildcard
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-  
-    // Pass to next layer of middleware
-    next();
-});
 
 
 // User Register
