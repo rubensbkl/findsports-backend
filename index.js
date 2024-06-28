@@ -6,20 +6,11 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
-
 const server = express();
 const router = jsonServer.router('database.json');
 const db = router.db;
 
-// Adjust the CORS middleware configuration
-const corsOptions = {
-    origin: 'http://127.0.0.1:5500', // or use '*' to allow all origins
-    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: ['X-Requested-With', 'content-type'],
-    credentials: true,
-};
-
-server.use(cors(corsOptions));
+server.use(cors());
 server.use(bodyParser.json());
 server.use('/api', router);
 
