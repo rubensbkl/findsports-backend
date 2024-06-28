@@ -15,6 +15,16 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use('/api', router);
 
+// Add headers before the routes are defined
+server.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500'); // Or '*' for a wildcard
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+  
+    // Pass to next layer of middleware
+    next();
+});
 
 
 // User Register
