@@ -2,10 +2,54 @@
   "users": [
     {
       "username": "teste",
-      "password": "$2b$10$FGcoHLKhedPDYYQQxvRGTO58Y7dkk/KjSzBqUeYhIc1.5nmWwLy5i",
-      "id": 1,
+      "password": "$2b$10$WIZcjxLb3d2qiVKkhBNhd.TlCTltIAtN8WaSripOMAWSqVCX3Bf8K",
+      "id": "1",
       "isAdmin": false,
-      "name": "teste",
+      "name": "testehaha",
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0,
+      "gender": "Masculino",
+      "birthDate": "41/24/2424",
+      "country": "brasil",
+      "state": "minas gerais",
+      "city": "lagoa santa",
+      "neighborhood": "bela vista",
+      "sports": [
+        "futebol",
+        "basquete",
+        "handball"
+      ],
+      "contact": {
+        "phone": "(31)98833-0143"
+      }
+    },
+    {
+      "username": "testeeee",
+      "password": "$2b$10$mK2z.yCIbXMiGie8f7Zp5O2HxTf5UvxajtONIgPFhMCXSwoVtbb4O",
+      "id": 2,
+      "isAdmin": false,
+      "name": "testeeee",
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0
+    },
+    {
+      "username": "fodasse",
+      "password": "$2b$10$HFLRJiCW1OYoOnw50UsLA.0fTQefYZ.H5KcOPjYkQ/mEwgWIzyHHW",
+      "id": 3,
+      "isAdmin": false,
+      "name": "fodasse",
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0
+    },
+    {
+      "username": "tadeu",
+      "password": "$2b$10$JbblTokZQXZXESiUlcHpguc0ukXJ4gGxjyrg77VihLwXermq4OHKO",
+      "id": 4,
+      "isAdmin": false,
+      "name": "tadeu",
       "likes": 0,
       "dislikes": 0,
       "rating": 0
@@ -13,5 +57,24 @@
   ],
   "arenas": [],
   "eventos": [],
-  "notifications": []
+  "notifications": [
+    {
+      "id": 1,
+      "content": "Você recebeu uma notificação de Fu",
+      "sender": 1,
+      "receiver": 2
+    },
+    {
+      "id": 1,
+      "content": "Você recebeu uma notificação de Fu",
+      "sender": 1,
+      "receiver": 2
+    },
+    {
+      "id": 1,
+      "content": "Você recebeu uma notificação de Fu",
+      "sender": 1,
+      "receiver": 2
+    }
+  ]
 }

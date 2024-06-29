@@ -7,11 +7,7 @@ const saltRounds = 10;
 
 const server = express();
 
-server.use(cors({
-    origin: 'http://127.0.0.1:5500',
-    methods: ["GET", "POST", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-}));
+server.use(cors());
 
 server.use(bodyParser.json());
 
