@@ -64,18 +64,22 @@ server.post('/user-login', async (req, res) => {
 
 // User Update
 server.put('/user-edit', async (req, res) => {
-  console.log(req.body);
-  const users = db.get('users');
-  const updateData = req.body;
-  const user = updateData.id;
-  if (user) {
-    users.find(user.id).assign(updateData).write();
-    return res.status(200).json({ message: 'User updated successfully' });
-  } else {
-    return res.status(400).json({ message: 'User not found' });
-  }
-
-});
+    console.log(req.body);
+    const users = db.get('users');
+    const updateData = req.body;
+    const userId = updateData.id; // Renomeado para maior clareza
+    if (userId) {
+      const userExists = users.find({ id: userId }).value(); // Verifica se o usuário existe
+      if (userExists) {
+        users.find({ id: userId }).assign(updateData).write();
+        return res.status(200).json({ message: 'User updated successfully' });
+      } else {
+        return res.status(404).json({ message: 'User not found' });
+      }
+    } else {
+      return res.status(400).json({ message: 'No user ID provided' });
+    }
+  });
 
 // Get All Users
 server.get('/users', (req, res) => {
