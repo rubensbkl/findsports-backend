@@ -1,78 +1,154 @@
 {
-    "users": [
-        {
-            "username": "teste",
-            "password": "$2b$10$LFTCo5WruDx4a/DmGsFAu.XarJlX5vETnT6TeVzYeQT.Gcp7d/4I6",
-            "id": 1,
-            "isAdmin": false,
-            "name": "Whindersson",
-            "likes": 0,
-            "dislikes": 0,
-            "rating": 0,
-            "gender": "Masculino",
-            "birthDate": "26/07/2005",
-            "country": "Brasil",
-            "state": "Minas Gerais",
-            "city": "Lagoa Santa",
-            "neighborhood": "Bela Vista",
-            "sports": [
-                "Basquete",
-                "Futebol"
-            ],
-            "contact": {
-                "phone": "(31)98833-0143"
-            }
-        },
-        {
-        "username": "rubensbkl",
-        "password": "$2b$10$rygsEeU/R7a8C3twHbiXp.9RRUgeJv8FW6f0PaLpWokRQOAb6tEg.",
-        "id": 2,
-        "isAdmin": false,
-        "name": "Rubens Dias",
-        "likes": 0,
-        "dislikes": 0,
-        "rating": 0,
-        "gender": "Masculino",
-        "birthDate": "13/13/1313",
-        "country": "dwadwad",
-        "state": "adwadwa",
-        "city": "dwadwa",
-        "neighborhood": "dwadwad",
-        "sports": [
-            "basquete"
-        ],
-        "contact": {
-            "phone": "(31)31313-1313"
-        }
-        }
-    ],
-    "eventos": [],
-    "team-invite": [
-        {
-            "id": 1,
-            "content": "Convidou você para o jogo de Basquete",
-            "sender": 1,
-            "receiver": 2
-        },
-        {
-            "id": 2,
-            "content": "Convidou você para o jogo de Volei",
-            "sender": 2,
-            "receiver": 1
-        }
-    ],
-    "event-invite": [
-        {
-            "id": 1,
-            "content": "Convidou você para o jogo de Futebol",
-            "sender": 1,
-            "receiver": 2
-        },
-        {
-            "id": 2,
-            "content": "Convidou você para o jogo de Medir um Lote",
-            "sender": 2,
-            "receiver": 1
-        }
-    ]
+  "users": [
+    {
+      "username": "teste",
+      "password": "$2b$10$LFTCo5WruDx4a/DmGsFAu.XarJlX5vETnT6TeVzYeQT.Gcp7d/4I6",
+      "id": 1,
+      "isAdmin": false,
+      "name": "Teste",
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0,
+      "gender": "Masculino",
+      "birthDate": "26/07/2005",
+      "country": "Brasil",
+      "state": "Minas Gerais",
+      "city": "Lagoa Santa",
+      "neighborhood": "Bela Vista",
+      "sports": [
+        "Basquete",
+        "Futebol"
+      ],
+      "contact": {
+        "phone": "(31)98833-0143"
+      }
+    },
+    {
+      "username": "rubensbkl",
+      "password": "$2b$10$rygsEeU/R7a8C3twHbiXp.9RRUgeJv8FW6f0PaLpWokRQOAb6tEg.",
+      "id": 2,
+      "isAdmin": false,
+      "name": "Ruben Dias",
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0,
+      "gender": "Masculino",
+      "birthDate": "26/07/2005",
+      "country": "Brasil",
+      "state": "Minas Gerais",
+      "city": "Lagoa Santa",
+      "neighborhood": "Bela Vista",
+      "sports": [
+        "Basquete"
+      ],
+      "contact": {
+        "phone": "(31)98833-0143"
+      }
+    }
+  ],
+  "arenas": [
+    {
+      "name": "Complexo Esportivo PUC Minas",
+      "address": "R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG, 30535-901",
+      "sports": [
+        "Basquete",
+        "Futsal",
+        "Handball",
+        "Futebol"
+      ],
+      "opening": "04:42",
+      "closing": "07:59",
+      "contact": {
+        "phone": "(31)42424-2424"
+      },
+      "description": "dawdwadwa",
+      "id": 1,
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0
+    },
+    {
+      "name": "Contorno do Corpo",
+      "address": "Av. Acdo. Nilo Figueiredo, 2057 - Joana Darc, Lagoa Santa - MG, 33239-310",
+      "sports": [
+        "Volei"
+      ],
+      "opening": "03:02",
+      "closing": "23:02",
+      "contact": {
+        "phone": "(32)32323-2323"
+      },
+      "description": "32323232dwadwadwa",
+      "id": 2,
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0
+    },
+    {
+      "name": "Casa do Enzo",
+      "address": "gay maximo",
+      "sports": [
+        "Basquete",
+        "Futebol",
+        "Futsal"
+      ],
+      "opening": "13:02",
+      "closing": "03:32",
+      "contact": {
+        "phone": "(43)12432-4324"
+      },
+      "description": "dwadwadwa",
+      "id": 3,
+      "likes": 0,
+      "dislikes": 0,
+      "rating": 0
+    }
+  ],
+  "events": [
+    {
+      "name": "Rubens",
+      "sport": "Basquete",
+      "datetime": "232323-03-31T23:32",
+      "description": "dwadwadwa",
+      "id": 1,
+      "arena": "Complexo Esportivo PUC Minas",
+      "maxSubs": 10,
+      "subs": [
+        1,
+        2
+      ]
+    }
+  ],
+  "team-invite": [
+    {
+      "id": 1,
+      "content": "Convidou você para o jogo de Basquete",
+      "sender": 1,
+      "receiver": 2,
+      "team": 1
+    },
+    {
+      "id": 2,
+      "content": "Convidou você para o jogo de Volei",
+      "sender": 2,
+      "receiver": 1,
+      "team": 2
+    }
+  ],
+  "event-invite": [
+    {
+      "id": 1,
+      "content": "Convidou você para o jogo de Futebol",
+      "sender": 1,
+      "receiver": 2,
+      "event": 1
+    },
+    {
+      "id": 2,
+      "content": "Convidou você para o jogo de Medir um Lote",
+      "sender": 2,
+      "receiver": 1,
+      "event": 2
+    }
+  ]
 }
