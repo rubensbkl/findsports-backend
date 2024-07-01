@@ -70,6 +70,7 @@ server.put('/user-edit', async (req, res) => {
     const userId = updateData.id; // Renomeado para maior clareza
     if (userId) {
       const userExists = users.find({ id: userId }).value(); // Verifica se o usuário existe
+      console.log(userExists);
       if (userExists) {
         users.find({ id: userId }).assign(updateData).write();
         return res.status(200).json({ message: 'User updated successfully' });
@@ -159,11 +160,23 @@ server.post('/send-notification', async (req, res) => {
   res.status(200).json({ message: 'Notificação enviada' });
 });
 
-// Get All Notifications
+// Adapted Get Notifications Endpoint
 server.get('/notifications', (req, res) => {
-  const notifications = db.get('notifications').value();
-  res.status(200).json(notifications);
+    const id = req.query.token;
+    console.log(id);
+    let team = db.get('team-invite').value();
+    let event = db.get('event-invite').value();
+  
+    // Filter notifications based on senderToken, if provided
+    if (id) {
+        team = team.filter(team => team.receiver === parseInt(id));
+        event = event.filter(event => event.receiver === parseInt(id));   
+    }
+  
+    res.status(200).json({ team, event });
 });
+
+
 
 server.listen(3000, () => {
   console.log('Server is running on port 3000');
