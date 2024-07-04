@@ -7,6 +7,9 @@ const saltRounds = 10;
 
 const server = express();
 
+const middlewares = jsonServer.defaults();
+server.use(middlewares);
+
 server.use(cors());
 
 server.use(bodyParser.json());
@@ -280,6 +283,10 @@ server.get('/comment-get/:id', (req, res) => {
 
     // Se houver comentários, envie-os de volta como resposta
     res.status(200).json(comments);    
+});
+
+server.get("/", (req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
 });
 
 server.listen(3000, () => {
