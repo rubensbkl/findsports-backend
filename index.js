@@ -7,9 +7,6 @@ const saltRounds = 10;
 
 const server = express();
 
-const middlewares = jsonServer.defaults();
-server.use(middlewares);
-
 server.use(cors());
 
 server.use(bodyParser.json());
@@ -285,9 +282,6 @@ server.get('/comment-get/:id', (req, res) => {
     res.status(200).json(comments);    
 });
 
-server.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
-});
 
 server.listen(3000, () => {
     console.log('Server is running on port 3000');
