@@ -16,7 +16,6 @@ const db = router.db;
 
 server.use('/api', router);
 
-
 // User Register
 server.post('/user-register', async (req, res) => {
   const users = db.get('users');
@@ -231,8 +230,6 @@ server.get('/teams', (req, res) => {
     res.status(200).json(teams);
 });
 
-
-
 // Team Register
 server.post('/team-register', async (req, res) => {
     const teams = db.get('teams');
@@ -252,22 +249,21 @@ server.post('/team-register', async (req, res) => {
     res.status(200).json({ message: 'Team registered successfully' });
 });
 
-
 // Comment Register
 server.post('/comment-register', async (req, res) => {
     const comments = db.get('comments');
     const newComment = req.body;
-  
+
     // Default values
     newComment.id = comments.size().value() + 1;
     newComment.authorId = req.userId; // Identificador do autor do comentário
     newComment.profileId = req.body.profileId; // Identificador do perfil no qual o comentário será postado
     newComment.content = req.body.content; // Conteúdo do comentário
     newComment.createdAt = new Date().toISOString(); // Data e hora de criação
-  
+
     // Adiciona o novo comentário ao banco de dados
     comments.push(newComment).write();
-  
+
     res.status(200).json({ message: 'Comment registered successfully' });
 });
 
@@ -276,17 +272,15 @@ server.get('/comment-get/:id', (req, res) => {
     const id = Number(req.params.id);
     // Busque os comentários associados a esse ID do banco de dados
     const comments = db.get('comments').filter({ profileId: id }).value();
-  
+
     if (!comments || comments.length === 0) {
       // Se não houver comentários para esse ID, envie uma resposta vazia
       return res.status(404).send('No comments found');
     }
-  
+
     // Se houver comentários, envie-os de volta como resposta
     res.status(200).json(comments);    
 });
-
-
 
 server.listen(3000, () => {
     console.log('Server is running on port 3000');

@@ -1,0 +1,55 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    background-color: var(--cor-terciaria);
+    margin: 2em;
+    border-radius: 2em;
+    padding: 2.5em;
+    align-items: center;
+}
+
+.users {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 2em;
+    width: 75%;
+}
+
+.searchBar {
+    background-color: var(--cor-terciaria);
+    height: 5em;
+    border-radius: 10em;
+    width: 100%;
+    align-content: center;
+    padding: 0 2em;
+}
+
+.searchBar .searchIcon {
+    color: var(--cor-secundaria);
+}
+
+.searchBar .searchInput {
+    background-color: var(--cor-terciaria);
+    border: none;
+    border-radius: 10em;
+    padding: 0 0 0 1em;
+    font-size: 1.5em;
+    outline: none;
+}
+
+
+
+.list-box .name {
+    margin: .5em 0 1em 0;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.list-container .open {
+    padding-right: 2em;
+}

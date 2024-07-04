@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+    <head>
+        <!-- Formatation Guide -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Visible Changes -->
+        <title>FindSports - Dashboard</title>
+        <link rel="icon" type="image/svg" href="assets/svg/findsports-icon.svg">
+
+        <!-- Page Informations -->
+        <meta name="author" content="FindSports Inc." />
+        <meta name="description" content="Descrição do site" />
+        <meta name="copyright" content="© 2024 FindSports Inc." />
+        <meta name="keywords" content="html, css, javascript, pucminas, puc, find, sports" />
+
+        <!-- Third Party Requests -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <script src="https://kit.fontawesome.com/c785f8ac1b.js" crossorigin="anonymous"></script>
+
+        <!-- FindSports CSS Requests -->
+        <link rel="stylesheet" href="assets/css/main-style.css">
+        
+    </head>
+
+    <body>
+
+        <header>
+
+            <a href="index.html" class="logo">
+              <img src="assets/svg/findsports-logo.svg" alt="FindSports Logo">
+            </a>
+      
+            <nav class="navbar">
+              <ul>
+                <li><a href="pages/users.html">Usuários</a></li>
+                <li><a href="pages/arenas.html">Arenas</a></li>
+                <li><a href="pages/teams.html">Equipes</a></li>
+                <li><a href="pages/events.html">Eventos</a></li>
+                <li><a href="pages/about.html">Sobre Nós</a></li>
+              </ul>
+            </nav>
+      
+            <div class="user-content">
+                <div class="navbox notify" onclick="toggleNotificationMenu()">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+                <div class="navbox" onclick="toggleUserMenu()">
+                    <i class="fa-regular fa-user" style="color: var(--cor-primaria);"></i>
+                    <div id="nav-username">@username</div>
+                </div>
+            </div>
+
+            <div class="sub-menu-wrap" id="userMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <h3>Menu</h2>
+                    </div>
+                    <hr>
+                    <a href="./pages/user-profile.html?id=${userId}" class="sub-menu-link" id="myprofile">
+                        <i class="fa-solid fa-user"></i>
+                        <p>Meu perfil</p>
+                        <span>></span>
+                    </a>
+                    <a href="./pages/user-edit.html" class="sub-menu-link">
+                        <i class="fa-solid fa-gear"></i>
+                        <p>Editar Perfil</p>
+                        <span>></span>
+                    </a>
+                    <a href="" class="sub-menu-link">
+                        <i class="fa-solid fa-shop"></i>
+                        <p>Minhas Arenas</p>
+                        <span>></span>
+                    </a>
+                    <a href="" class="sub-menu-link">
+                        <i class="fa-solid fa-users"></i>
+                        <p>Meus Times</p>
+                        <span>></span>
+                    </a>
+                    <a href="" class="sub-menu-link">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <p>Meus Eventos</p>
+                        <span>></span>
+                    </a>
+                    <a href="pages/landing.html" class="sub-menu-link" id="logoutButton">
+                        <i class="fa-solid fa-person-running"></i>
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub-menu-wrap" id="userNotification">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <h3>Notificações</h2>
+                    </div>
+                    <hr>
+                    <div class="notificationContainer" id="notificationContainer"></div>
+                </div>
+            </div>
+
+        </header>
+
+        <main>
+
+          <section class="container">
+            <button class="button2" id="sendNotification">Enviar notificação</button>
+          </section>
+          
+        </main>
+
+        <footer>
+
+            <div class="footer-logo">
+                <h1 class="royalacid vw-regular secoundary">FindSports</h1>
+            </div>
+      
+            <nav class="navbar">
+              <ul class="m-0">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/users.html">Usuários</a></li>
+                <li><a href="pages/arenas.html">Arenas</a></li>
+                <li><a href="pages/teams.html">Equipes</a></li>
+                <li><a href="pages/events.html">Eventos</a></li>
+                <li><a href="pages/about.html">Sobre Nós</a></li>
+              </ul>
+            </nav>
+      
+        </footer>
+
+        <!-- Third Party JavaScripts Requests -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- FindSports JavaScripts Requests -->
+        <script src="assets/scripts/main.js"></script>
+        <script src="assets/scripts/checkLogin.js"></script>
+
+    </body>
+
+</html>

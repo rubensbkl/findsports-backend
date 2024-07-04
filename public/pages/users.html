@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+    <head>
+        <!-- Formatation Guide -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Visible Changes -->
+        <title>FindSports - Usuários</title>
+        <link rel="icon" type="image/svg" href="../assets/svg/findsports-icon.svg">
+
+        <!-- Page Informations -->
+        <meta name="author" content="FindSports Inc." />
+        <meta name="description" content="Descrição do site" />
+        <meta name="copyright" content="© 2024 FindSports Inc." />
+        <meta name="keywords" content="html, css, javascript, pucminas, puc, find, sports" />
+
+        <!-- Third Party Requests -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <script src="https://kit.fontawesome.com/c785f8ac1b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../assets/css/main-style.css">
+        <link rel="stylesheet" href="../assets/css/search-page.css">
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <a href="../index.html" class="logo">
+              <img src="../assets/svg/findsports-logo.svg" alt="FindSports Logo">
+            </a>
+      
+            <nav class="navbar">
+                <ul>
+                  <li><a href="../pages/users.html">Usuários</a></li>
+                  <li><a href="../pages/arenas.html">Arenas</a></li>
+                  <li><a href="../pages/teams.html">Times</a></li>
+                  <li><a href="../pages/events.html">Eventos</a></li>
+                  <li><a href="../pages/about.html">Sobre Nós</a></li>
+                </ul>
+              </nav>
+      
+            <div class="menu">
+              <input type="checkbox" name="todo" id="menuToggler">
+              <label for="menuToggler">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark"></i>
+              </label>
+            </div>
+      
+        </header>
+
+        <main>
+
+            <section class="container row">
+                <div class="column filter">
+                    <h2>Região</h2>
+                    <h2>Gênero</h2>
+                    <h2>Esportes</h2>
+                    <h2>K/D</h2>
+                    <h2>Atividade</h2>
+
+                </div>
+                <div class="column users">
+                    <div class="searchBar">
+                        <span class="searchIcon material-symbols-outlined">search</span>
+                        <input class="searchInput" type="search" placeholder="Buscar.." id="search-input">
+                    </div>
+                    <div class="row width-100 mg-top-2" id="users"></div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+
+            <div class="footer-logo">
+              <h1 class="royalacid em-3 secoundary">FindSports</h1>
+            </div>
+      
+            <nav class="navbar">
+                <ul>
+                  <li><a href="../index.html">Home</a></li>
+                  <li><a href="../pages/users.html">Usuários</a></li>
+                  <li><a href="../pages/arenas.html">Arenas</a></li>
+                  <li><a href="../pages/teams.html">Times</a></li>
+                  <li><a href="../pages/events.html">Eventos</a></li>
+                  <li><a href="../pages/about.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+      
+        </footer>
+
+        <!-- Importação do jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Importação do seu arquivo JavaScript -->
+        <script src="../assets/scripts/main.js"></script>
+        <script src="../assets/scripts/checkLogin.js"></script>
+        <script src="../assets/scripts/users.js"></script>
+       
+    </body>
+
+</html>

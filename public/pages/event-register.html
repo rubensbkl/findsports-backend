@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+    <head>
+        <!-- Formatation Guide -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Visible Changes -->
+        <title>FindSports - Criar Evento</title>
+        <link rel="icon" type="image/svg" href="../assets/svg/findsports-icon.svg">
+
+        <!-- Page Informations -->
+        <meta name="author" content="FindSports Inc." />
+        <meta name="description" content="Descrição do site" />
+        <meta name="copyright" content="© 2024 FindSports Inc." />
+        <meta name="keywords" content="html, css, javascript, pucminas, puc, find, sports" />
+
+        <!-- Third Party Requests -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <script src="https://kit.fontawesome.com/c785f8ac1b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+        <!-- FindSports CSS Requests -->
+        <link rel="stylesheet" href="../assets/css/main-style.css">
+        
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- cabeçalho -->
+        <header>
+
+            <a href="../index.html" class="logo">
+              <img src="../assets/svg/findsports-logo.svg" alt="FindSports Logo">
+            </a>
+      
+            <nav class="navbar">
+              <ul>
+                <li><a href="#">Arenas</a></li>
+                <li><a href="#">Times</a></li>
+                <li><a href="#">Campeonatos</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+              </ul>
+            </nav>
+      
+            <div class="menu">
+              <input type="checkbox" name="todo" id="menuToggler">
+              <label for="menuToggler">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark"></i>
+              </label>
+            </div>
+      
+        </header>
+
+        <!-- conteudo -->
+        <main>
+            <section class="container">
+      
+                <div class="column">
+        
+                    <h2>Cadastro de Evento</h2>
+                    <p>Preencha as informações do evento para que os<br>usuários tenham mais informações sobre.</p>
+        
+                </div>
+        
+                <div class="formDiv">
+                    <form class="form" id="registerEvento">      
+
+                        <div class="contentBox">
+                            <input class="contentInput" type="text" placeholder="Nome" id="name" required>
+                        </div>
+
+                        <div class="contentBox">
+                            <select class="selectMulti contentInput infoSubmit" id="sport" required>
+                                <option value="Futebol">Futebol</option>
+                                <option value="Basquete">Basquete</option>
+                                <option value="Volei">Vôlei</option>
+                                <option value="Handball">Handball</option>
+                                <option value="Futsal">Futsal</option>
+                            </select>
+                        </div>
+
+                        <div class="contentBox">
+                            <select class="selectMulti contentInput infoSubmit" id="arena" required>
+                                <option value="Morro do Alemão">Morro do Alemão</option>
+                                <option value="Complexo da Penha">Complexo da Penha</option>
+                                <option value="Rocinha">Rocinha</option>
+                                <option value="Jacarézinho">Jacarézinho</option>
+                                <option value="Morro do PPG">Morro do PPG</option>
+                            </select>
+                        </div>
+
+                        <div class="contentBox">
+                            <input class="contentInput" type="text" placeholder="Data e Horário" id="datetime" onfocus="this.type='datetime-local'" onblur="if (!this.value) this.type='text'">
+                        </div>
+
+                        <div class="contentBox">
+                            <input class="contentInput" type="description" placeholder="Descrição" id="description" required>
+                        </div>
+
+                        <button class="button1" id="button" type="submit">Salvar</button>
+
+                    </form>
+        
+                </div>
+      
+            </section>
+      
+        </main>
+
+        <!-- rodape -->
+        <footer>
+
+            <div class="footer-logo">
+              <h1 class="royalacid em-3 secoundary">FindSports</h1>
+            </div>
+      
+            <nav class="navbar">
+              <ul class="m-0">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Arenas</a></li>
+                <li><a href="#">Times</a></li>
+                <li><a href="#">Campeonatos</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+              </ul>
+            </nav>
+      
+        </footer>
+
+        <!-- scripts -->
+        
+        <!-- Importação do jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+        <!-- Java Script Request -->
+        <script src="../assets/scripts/main.js"></script>
+        <script src="../assets/scripts/checkLogin.js"></script>
+        <script src="../assets/scripts/eventRegister.js"></script>
+       
+    </body>
+
+</html>

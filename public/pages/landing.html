@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+    <head>
+        <!-- Formatation Guide -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Visible Changes -->
+        <title>FindSports</title>
+        <link rel="icon" type="image/svg" href="../assets/svg/findsports-icon.svg">
+        
+        <!-- Page Informations -->
+        <meta name="author" content="FindSports Inc." />
+        <meta name="description" content="Descrição do site" />
+        <meta name="copyright" content="© 2024 FindSports Inc." />
+        <meta name="keywords" content="html, css, javascript, pucminas, puc, find, sports" />
+
+        <!-- Third Party Requests -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <script src="https://kit.fontawesome.com/c785f8ac1b.js" crossorigin="anonymous"></script>
+        <!-- FindSports CSS Requests -->
+        <link rel="stylesheet" href="../assets/css/main-style.css">
+        
+    </head>
+
+    <body>
+
+        <header>
+
+            <a href="../index.html" class="logo">
+              <img src="../assets/svg/findsports-logo.svg" alt="FindSports Logo">
+            </a>
+
+            <nav class="navbar">
+              <ul>
+                <li><a href="../pages/users.html" class="disable">Usuários</a></li>
+                <li><a href="../pages/arenas.html" class="disable">Arenas</a></li>
+                <li><a href="../pages/teams.html" class="disable">Times</a></li>
+                <li><a href="../pages/events.html" class="disable">Eventos</a></li>
+                <li><a href="../pages/about.html">Sobre Nós</a></li>
+              </ul>
+            </nav>
+
+            <div class="menu">
+              <input type="checkbox" name="todo" id="menuToggler">
+              <label for="menuToggler">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark"></i>
+              </label>
+            </div>
+
+        </header>
+
+        <main class="width-80">
+
+            <section class="container column justify-evenly">
+        
+                <div>
+                    <h1 class="thin vw-small txt-center">Meet</h1>
+                    <h1 class="royalacid vw-bigger txt-center">Find<span class="royalacid primary">Sports</span></h1>
+                </div>
+
+                <div class="row justify-evenly mg-lr">
+                    <div class="box">
+                      <h3 class="txt-center mg-bot">Registro</h3>
+                      <form id="registerForm">
+                    
+                        <div class="contentBox">
+                          <input class="contentInput" type="text" placeholder="username" id="regUsername" required>
+                        </div>
+            
+                        <div class="contentBox">
+                          <input class="contentInput" type="text" placeholder="senha" id="regPassword" required>
+                        </div>
+            
+                        <button class="button1" id="button" type="submit">Registrar</button>
+            
+                      </form>
+                    </div>
+                    <div class="box">
+                        <h3 class="txt-center mg-bot">Login</h3>
+                        <form id="loginForm">
+                        
+                            <div class="contentBox">
+                            <input class="contentInput" type="text" placeholder="username" id="logUsername" required>
+                            </div>
+                
+                            <div class="contentBox">
+                            <input class="contentInput" type="text" placeholder="senha" id="logPassword" required>
+                            </div>
+                
+                            <button class="button1" id="button" type="submit">Logar</button>
+                
+                        </form>
+                    </div>
+        
+                </div>
+        
+            </section>
+
+        </main>
+
+        <footer>
+
+            <div class="footer-logo">
+              <h1 class="royalacid vw-regular secoundary">FindSports</h1>
+            </div>
+      
+            <nav class="navbar">
+              <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/users.html">Usuários</a></li>
+                <li><a href="../pages/arenas.html">Arenas</a></li>
+                <li><a href="../pages/teams.html">Times</a></li>
+                <li><a href="../pages/events.html">Eventos</a></li>
+                <li><a href="../pages/about.html">Sobre Nós</a></li>
+              </ul>
+          </nav>
+      
+        </footer>
+
+        <!-- Importação do jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Importação do seu arquivo JavaScript -->
+        <script src="../assets/scripts/main.js"></script>
+        <script src="../assets/scripts/checkUnlogged.js"></script>
+        <script src="../assets/scripts/checkDisable.js"></script>
+        <script src="../assets/scripts/login.js"></script>
+
+    </body>
+    
+</html>
